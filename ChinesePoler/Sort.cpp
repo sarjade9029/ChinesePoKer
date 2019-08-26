@@ -8,7 +8,7 @@ Sort::~Sort()
 	printf("ソートを終了しました");
 }
 //(statusbase*nowactor,int* handcard)
-void Sort::handsort(StatusBase * nowActor)
+void Sort::handsort(ObjectBase * nowActor)
 {
 	int tmpnumber;
 	int tmpsuit;
@@ -29,7 +29,6 @@ void Sort::handsort(StatusBase * nowActor)
 				nowActor->SethandSuit(i - 1, tmpsuit);
 			}
 		}
-		
 	}
 	//スートのソート
 	for (int j = 5; j > 0; j--)

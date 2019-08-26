@@ -9,13 +9,13 @@ Hand::Hand()
 Hand::~Hand()
 {
 }
-int Hand::HighCard(Card *card)//(statusbase*nowactor,int* handcard)
+int Hand::HighCard(ObjectBase *nowActor, int* handcard)//(statusbase*nowactor,int* handcard)
 {
 	playercard.number[0];//playerŒÅ’è‚¶‚á‚È‚­‚Änow_actor‚É‚µ‚ÄŽ©—R‚ÉŽw’è‚Å‚«‚é‚æ‚¤‚É‚·‚é
 	standardScore = standardScore * 0;
 	return palyercard.number[0]+standardScore;
 }
-int Hand::OnePair(Card * card)
+int Hand::OnePair(ObjectBase *nowActor, int* handcard)
 {
 	for (int i = 0; i < 4; i++)
 	{
@@ -27,7 +27,7 @@ int Hand::OnePair(Card * card)
 	}
 	return -1;
 }
-int Hand::TowPair(Card * card)
+int Hand::TowPair(ObjectBase *nowActor, int* handcard)
 {
 	int count = 0;
 	for (int i = 0; i < 4; i++)
@@ -40,7 +40,7 @@ int Hand::TowPair(Card * card)
 	standardScore = standardScore * 2;
 	return 0;
 }
-int Hand::ThreeCard(Card * card)
+int Hand::ThreeCard(ObjectBase *nowActor, int* handcard)
 {
 	if (!(player.hi[0] == player.hi[4]))
 	{
@@ -49,7 +49,7 @@ int Hand::ThreeCard(Card * card)
 	standardScore = standardScore * 3;
 	return 0;
 }
-int Hand::Straight(Card * card)
+int Hand::Straight(ObjectBase *nowActor, int* handcard)
 {
 	if (!(player.hi[0] == player.hi[4]))
 	{
@@ -58,7 +58,7 @@ int Hand::Straight(Card * card)
 	standardScore = standardScore * 4;
 	return 0;
 }
-int Hand::flush(Card * card)
+int Hand::flush(ObjectBase *nowActor, int* handcard)
 {
 	if (!(player.hi[0] == player.hi[4]))
 	{
@@ -67,7 +67,7 @@ int Hand::flush(Card * card)
 	standardScore = standardScore * 5;
 	return 0;
 }
-int Hand::FullHouse(Card * card)
+int Hand::FullHouse(ObjectBase *nowActor, int* handcard)
 {
 	if (!(player.hi[0] == player.hi[4]))
 	{
@@ -76,7 +76,7 @@ int Hand::FullHouse(Card * card)
 	standardScore = standardScore * 6;
 	return 0;
 }
-int Hand::FourCard(Card * card)
+int Hand::FourCard(ObjectBase *nowActor, int* handcard)
 {
 	if (!(player.hi[0] == player.hi[4]))
 	{
@@ -85,7 +85,7 @@ int Hand::FourCard(Card * card)
 	standardScore = standardScore * 7;
 	return 0;
 }
-int Hand::StraitFlush(Card * card)
+int Hand::StraitFlush(ObjectBase *nowActor, int* handcard)
 {
 	if (!(player.hi[0] == player.hi[4]))
 	{
@@ -94,7 +94,7 @@ int Hand::StraitFlush(Card * card)
 	standardScore = standardScore * 8;
 	return 0;
 }
-int Hand::RoyalStraightFlush(Card * card)
+int Hand::RoyalStraightFlush(ObjectBase *nowActor, int* handcard)
 {
 	if (!(player.hi[0] == player.hi[4]))
 	{
@@ -103,7 +103,7 @@ int Hand::RoyalStraightFlush(Card * card)
 	standardScore = standardScore * 9;
 	return 0;
 }
-int Hand::fiveCard(Card * card)
+int Hand::fiveCard(ObjectBase *nowActor, int* handcard)
 {
 	if (!(player.hi[0] == player.hi[4]))
 	{

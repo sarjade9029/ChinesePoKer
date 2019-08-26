@@ -1,6 +1,6 @@
 #pragma once
 #include "Card.h"
-#include "StatusBase.h"
+#include "ObjectBase.h"
 
 class Hand
 {
@@ -8,17 +8,17 @@ public:
 	Hand();
 	~Hand();
 	
-	int HighCard(StatusBase *nowActor);			//16~54		|			0
-	int OnePair(StatusBase *nowActor);			//11~59		|	10~46	100
-	int TowPair(StatusBase *nowActor);			//9~61		|	6~36	200
-	int ThreeCard(StatusBase *nowActor);			//8~62		|	6~36	300
-	int Straight(StatusBase *nowActor);			//15~55		|			400
-	int flush(StatusBase *nowActor);				//8~62		|			500
-	int FullHouse(StatusBase *nowActor);			//7~63		|	3~25	600
-	int FourCard(StatusBase *nowActor);			//6~64		|	3~25	700
-	int StraitFlush(StatusBase *nowActor);		//15~50		|			800
-	int RoyalStraightFlush(StatusBase *nowActor);	//1			|			900
-	int fiveCard(StatusBase *nowActor);			//5~65		|	1~13	1000
+	int HighCard                 (ObjectBase *nowActor,int* handcard);			//16~54		|			0
+	int OnePair                  (ObjectBase *nowActor,int* handcard);			//11~59		|	10~46	100
+	int TowPair                  (ObjectBase *nowActor,int* handcard);			//9~61		|	6~36	200
+	int ThreeCard                (ObjectBase *nowActor,int* handcard);			//8~62		|	6~36	300
+	int Straight                 (ObjectBase *nowActor,int* handcard);			//15~55		|			400
+	int flush                    (ObjectBase *nowActor,int* handcard);				//8~62		|			500
+	int FullHouse                (ObjectBase *nowActor,int* handcard);			//7~63		|	3~25	600
+	int FourCard                 (ObjectBase *nowActor,int* handcard);			//6~64		|	3~25	700
+	int StraitFlush              (ObjectBase *nowActor,int* handcard);		//15~50		|			800
+	int RoyalStraightFlush       (ObjectBase *nowActor,int* handcard);	//1			|			900
+	int fiveCard                 (ObjectBase *nowActor,int* handcard);			//5~65		|	1~13	1000
 private:
 	int standardScore;//100
 };

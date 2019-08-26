@@ -2,14 +2,14 @@
 #include "Player.h"
 #include "Computer.h"
 #include "DxLib.h"
-#include "StatusBase.h"
+#include "ObjectBase.h"
 
 class Sort
 {
 public:
 	Sort();
 	~Sort();
-	void handsort(StatusBase * nowActor);
+	void handsort(ObjectBase * nowActor);
 private:
 
 

@@ -1,6 +1,6 @@
 #pragma once
-#include "StatusBase.h"
-class Player:public StatusBase
+#include "ObjectBase.h"
+class Player:public ObjectBase
 {
 public:
 	Player();

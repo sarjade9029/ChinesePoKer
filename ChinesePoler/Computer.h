@@ -1,6 +1,6 @@
 #pragma once
-#include "StatusBase.h"
-class Computer:public StatusBase
+#include "ObjectBase.h"
+class Computer:public ObjectBase
 {
 public:
 	Computer();
