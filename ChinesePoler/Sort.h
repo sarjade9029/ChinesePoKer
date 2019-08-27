@@ -9,7 +9,7 @@ class Sort
 public:
 	Sort();
 	~Sort();
-	void handsort(ObjectBase * nowActor);
+	void handsort(ObjectBase * nowActor, int* handcard);
 private:
 
 

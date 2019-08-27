@@ -1,0 +1,21 @@
+﻿  Camera.cpp
+  Card.cpp
+  CardManager.cpp
+  Computer.cpp
+  Deck.cpp
+c:\users\student\desktop\新しいフォルダー\chinesepoler\deck.cpp(21): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\student\desktop\新しいフォルダー\chinesepoler\deck.cpp(21): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+  Game.cpp
+  GameScene.cpp
+  GameSys.cpp
+  Hand.cpp
+c:\users\student\desktop\新しいフォルダー\chinesepoler\hand.cpp(130): error C2065: 'player': 定義されていない識別子です。
+c:\users\student\desktop\新しいフォルダー\chinesepoler\hand.cpp(139): error C2065: 'player': 定義されていない識別子です。
+c:\users\student\desktop\新しいフォルダー\chinesepoler\hand.cpp(148): error C2065: 'player': 定義されていない識別子です。
+c:\users\student\desktop\新しいフォルダー\chinesepoler\hand.cpp(157): error C2065: 'player': 定義されていない識別子です。
+  main.cpp
+  Player.cpp
+  Sort.cpp
+  ObjectBase.cpp
+  TitleScene.cpp
+  コードを生成中...

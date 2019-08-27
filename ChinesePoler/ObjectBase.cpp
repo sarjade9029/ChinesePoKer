@@ -11,24 +11,24 @@ ObjectBase::~ObjectBase()
 {
 }
 
-int ObjectBase::GethandNumber(int n)
+int ObjectBase::GethandNumber(int n, int* handcard)
 {
-	return handNumber[n];
+	return handcard[n];
 }
 
-int ObjectBase::GethandSuit(int n)
+int ObjectBase::GethandSuit(int n, int* handcard)
 {
-	return handSuit[n];
+	return handcard[n];
 }
 
-void ObjectBase::SethandNumber(int i, int n)
+void ObjectBase::SethandNumber(int i, int n, int* handcard)
 {
-	handNumber[i] = n;
+	handcard[i] = n;
 }
 
-void ObjectBase::SethandSuit(int i, int n)
+void ObjectBase::SethandSuit(int i, int n, int* handcard)
 {
-	handSuit[i] = n;
+	handcard[i] = n;
 }
 
 

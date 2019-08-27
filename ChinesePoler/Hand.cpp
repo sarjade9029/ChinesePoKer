@@ -11,18 +11,25 @@ Hand::~Hand()
 }
 int Hand::HighCard(ObjectBase *nowActor, int* handcard)//(statusbase*nowactor,int* handcard)
 {
-	playercard.number[0];//player固定じゃなくてnow_actorにして自由に指定できるようにする
-	standardScore = standardScore * 0;
-	return palyercard.number[0]+standardScore;
+	nowActor->GethandNumber(5,handcard);//player固定じゃなくてnow_actorにして自由に指定できるようにする
+	if (nowActor->GethandNumber(1, handcard) == 1)
+	{
+		return nowActor->GethandNumber(1, handcard) + standardScore * 0;
+	}
+	return nowActor->GethandNumber(1, handcard) +standardScore * 0;
 }
 int Hand::OnePair(ObjectBase *nowActor, int* handcard)
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 3; i++)
 	{
-		if(playercard.number[i] == playercard.number[i])
+		if(nowActor->GethandNumber(i, handcard) == nowActor->GethandNumber(i+1, handcard))
 		{
+			if (nowActor->GethandNumber(i, handcard) == 1)
+			{
+				return nowActor->GethandNumber(i, handcard) + 13 +standardScore * 1;
+			}
 			standardScore = standardScore * 1;
-			return playercard.number[i]+standardScore;
+			return nowActor->GethandNumber(i, handcard) + standardScore * 1;
 		}
 	}
 	return -1;
@@ -30,85 +37,141 @@ int Hand::OnePair(ObjectBase *nowActor, int* handcard)
 int Hand::TowPair(ObjectBase *nowActor, int* handcard)
 {
 	int count = 0;
-	for (int i = 0; i < 4; i++)
+	int num = 0;
+	for (int i = 0; i < 3; i++)
 	{
-		if (playercard.number[i] == playercard.number[i])
+		if (nowActor->GethandNumber(i, handcard) == nowActor->GethandNumber(i + 1, handcard) && num == 0)
 		{
 			count++;
 		}
+		if (nowActor->GethandNumber(i, handcard) == 1)
+		{
+			count++;
+			num = nowActor->GethandNumber(i, handcard) + 13;
+		}
+		if (nowActor->GethandNumber(i, handcard) == nowActor->GethandNumber(i + 1, handcard) && num != 0)
+		{
+			return (nowActor->GethandNumber(i, handcard) + num) + standardScore * 2;
+		}
 	}
-	standardScore = standardScore * 2;
 	return 0;
 }
 int Hand::ThreeCard(ObjectBase *nowActor, int* handcard)
 {
-	if (!(player.hi[0] == player.hi[4]))
+	for (int i = 0; i < 3; i++)
 	{
-		return -1;
+		if (nowActor->GethandNumber(i, handcard) == nowActor->GethandNumber(i + 2, handcard))
+		{
+			if (nowActor->GethandNumber(i, handcard) == 1)
+			{
+				return nowActor->GethandNumber(i, handcard) + 13 + standardScore * 3;
+			}
+			return nowActor->GethandNumber(i, handcard) + standardScore * 3;
+		}
 	}
-	standardScore = standardScore * 3;
 	return 0;
 }
 int Hand::Straight(ObjectBase *nowActor, int* handcard)
 {
-	if (!(player.hi[0] == player.hi[4]))
+	int count = 0;
+	for (int i = 0; i < 4; i++)
 	{
-		return -1;
+		if (nowActor->GethandNumber(i, handcard) == 1 && nowActor->GethandNumber(i + 1, handcard) == 10)
+		{
+			count++;
+			continue;
+		}
+		if (nowActor->GethandNumber(i, handcard) == nowActor->GethandNumber(i + 1, handcard))
+		{
+			count++;
+		}
+		if (count == 4)
+		{
+			return nowActor->GethandNumber(i, handcard) + standardScore * 4;
+		}
 	}
-	standardScore = standardScore * 4;
+	
 	return 0;
 }
 int Hand::flush(ObjectBase *nowActor, int* handcard)
 {
-	if (!(player.hi[0] == player.hi[4]))
+	int count = 0;
+	for (int i = 0; i < 4; i++)
 	{
-		return -1;
+		if (nowActor->GethandSuit(i, handcard) == nowActor->GethandSuit(i + 1, handcard))
+		{
+			count++;
+		}
+		if (count == 4)
+		{
+			if (nowActor->GethandNumber(1, handcard) == 1)
+			{
+				return nowActor->GethandNumber(1, handcard) + standardScore * 5;
+			}
+			return nowActor->GethandNumber(5, handcard) + standardScore * 5;
+		}
 	}
-	standardScore = standardScore * 5;
 	return 0;
 }
 int Hand::FullHouse(ObjectBase *nowActor, int* handcard)
 {
-	if (!(player.hi[0] == player.hi[4]))
+	if (((nowActor->GethandNumber(0, handcard) == nowActor->GethandNumber(1, handcard)) 
+		&& (nowActor->GethandNumber(2, handcard) == nowActor->GethandNumber(4, handcard)))
+		||((nowActor->GethandNumber(0,handcard)==nowActor->GethandNumber(2,handcard))
+		&&(nowActor->GethandNumber(3,handcard)==nowActor->GethandNumber(4,handcard))))
 	{
-		return -1;
+		if (nowActor->GethandNumber(0, handcard) == 1)
+		{
+			return nowActor->GethandNumber(1, handcard) + 13 + nowActor->GethandNumber(4, handcard) + standardScore * 6;
+		}
+		return nowActor->GethandNumber(1, handcard) + nowActor->GethandNumber(4, handcard) + standardScore * 6;
 	}
-	standardScore = standardScore * 6;
 	return 0;
 }
 int Hand::FourCard(ObjectBase *nowActor, int* handcard)
 {
-	if (!(player.hi[0] == player.hi[4]))
+	for (int i = 0; i < 2; i++)
 	{
-		return -1;
+		if (nowActor->GethandNumber(i, handcard) == nowActor->GethandNumber(i + 3, handcard))
+		{
+			if (nowActor->GethandNumber(i, handcard) == 1)
+			{
+				return nowActor->GethandNumber(i, handcard) +13+ standardScore * 7;
+			}
+			return nowActor->GethandNumber(i, handcard) + standardScore * 7;
+		}
 	}
-	standardScore = standardScore * 7;
 	return 0;
 }
 int Hand::StraitFlush(ObjectBase *nowActor, int* handcard)
 {
-	if (!(player.hi[0] == player.hi[4]))
+	if ((Straight(nowActor, handcard) != 0) && (flush(nowActor, handcard) != 0))
 	{
-		return -1;
+		if (nowActor->GethandNumber(0, handcard) == 1)
+		{
+			return nowActor->GethandNumber(0, handcard) + 13 + standardScore * 8;
+		}
+		return nowActor->GethandNumber(0, handcard) + standardScore * 8;
 	}
-	standardScore = standardScore * 8;
 	return 0;
 }
 int Hand::RoyalStraightFlush(ObjectBase *nowActor, int* handcard)
 {
-	if (!(player.hi[0] == player.hi[4]))
+	int count;
+	if (nowActor->GethandNumber(0, handcard) == 1 && nowActor->GethandNumber(1, handcard) == 10)
 	{
-		return -1;
+		count++;
+		for (int i = 1; i < 4; i++)
+		{
+			if (nowActor->GethandNumber(i, handcard) + 1 == nowActor->GethandNumber(i+1, handcard))
+			{
+				count++;
+				if (count == 4)
+				{
+					return nowActor->GethandNumber(i, handcard) + standardScore * 9;
+				}
+			}
+		}
 	}
-	standardScore = standardScore * 9;
-	return 0;
-}
-int Hand::fiveCard(ObjectBase *nowActor, int* handcard)
-{
-	if (!(player.hi[0] == player.hi[4]))
-	{
-		return -1;
-	}
-	standardScore = standardScore * 10;
 	return 0;
 }
