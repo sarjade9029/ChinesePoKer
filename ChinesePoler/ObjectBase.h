@@ -5,16 +5,20 @@ class ObjectBase
 public:
 	ObjectBase();
 	~ObjectBase();
-	int GethandNumber(int handcard);
-	int GethandNumber(int n,int*handcard);
-	int GethandSuit(int handcard);
-	int GethandSuit(int n,int* handcard);
-	void SethandNumber(int i,int n,int* handcard);
-	void SethandSuit(int i,int n,int* handcard);
-	void setStarthand(int dealcard,Card *card);
-	void setNextCard(int dealcard,Card *card);
-	void setSelectMyHnad(int *handcard);
-	void setSelectMyHand(int *handcard, int n);
+	int GethandNumber(int handcardNumber);
+	int GethandNumber(int n,int*handcardNumber);
+	int GethandSuit(int handcardSuit);
+	int GethandSuit(int n,int* handcardSuit);
+	int* Gethinumber() { return hiHandNumber; }
+	int* Getmiddlenumber() { return middleHandNumber; }
+	int* Getlownumber() { return lowHandNumber; }
+	int* Gethisuit() { return hiHandSuit; }
+	int* Getmiddlesuit() { return middleHandSuit; }
+	int* Getlowsuit() { return lowHandSuit; }
+	void SethandNumber(int i,int n,int* handcardNumber);
+	void SethandSuit(int i,int n,int* handcardSuit);
+	void setSelectMyHnad(int *handcardNumber,int* handcardSuit);
+	void setSelectMyHand(int *handcardNumber,int* handcardSuit, int n);
 private:
 	int hiHandNumber[5];		//
 	int middleHandNumber[5];	//
@@ -22,11 +26,12 @@ private:
 	int hiHandSuit[5];			//
 	int middleHandSuit[5];		//
 	int lowHandSuit[3];			//
-	int startHnadNumber[5];		//
-	int startHnadSuit[5];		//
-	int nextHnadNumber;			//
-	int nextHnadSuit;			//
+	int startHandNumber[5];		//
+	int startHandSuit[5];		//
+	int nextHandNumber;			//
+	int nextHandSuit;			//
 	int point;					//ˆê‡–ˆ‚ÌÀ¿“I‚ÈHP
 	int Score;					//ˆêŸ•‰–ˆ‚ÌŸ”s‚ğŒˆ‚ß‚é“¾“_
+	int wins;					//
 };
 

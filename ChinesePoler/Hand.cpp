@@ -93,22 +93,22 @@ int Hand::Straight(ObjectBase *nowActor, int* handcard)
 	
 	return 0;
 }
-int Hand::flush(ObjectBase *nowActor, int* handcard)
+int Hand::flush(ObjectBase *nowActor, int* handcardSuit)
 {
 	int count = 0;
 	for (int i = 0; i < 4; i++)
 	{
-		if (nowActor->GethandSuit(i, handcard) == nowActor->GethandSuit(i + 1, handcard))
+		if (nowActor->GethandSuit(i, handcardSuit) == nowActor->GethandSuit(i + 1, handcardSuit))
 		{
 			count++;
 		}
 		if (count == 4)
 		{
-			if (nowActor->GethandNumber(1, handcard) == 1)
+			if (nowActor->GethandNumber(1, handcardSuit) == 1)
 			{
-				return nowActor->GethandNumber(1, handcard) + standardScore * 5;
+				return nowActor->GethandNumber(1, handcardSuit) + standardScore * 5;
 			}
-			return nowActor->GethandNumber(5, handcard) + standardScore * 5;
+			return nowActor->GethandNumber(5, handcardSuit) + standardScore * 5;
 		}
 	}
 	return 0;
@@ -143,32 +143,35 @@ int Hand::FourCard(ObjectBase *nowActor, int* handcard)
 	}
 	return 0;
 }
-int Hand::StraitFlush(ObjectBase *nowActor, int* handcard)
+int Hand::StraitFlush(ObjectBase *nowActor, int* handcardNumber, int*handcardSuit)
 {
-	if ((Straight(nowActor, handcard) != 0) && (flush(nowActor, handcard) != 0))
+	if ((Straight(nowActor, handcardNumber) != 0) && (flush(nowActor, handcardSuit) != 0))
 	{
-		if (nowActor->GethandNumber(0, handcard) == 1)
+		if (nowActor->GethandNumber(0, handcardNumber) == 1)
 		{
-			return nowActor->GethandNumber(0, handcard) + 13 + standardScore * 8;
+			return nowActor->GethandNumber(0, handcardNumber) + 13 + standardScore * 8;
 		}
-		return nowActor->GethandNumber(0, handcard) + standardScore * 8;
+		return nowActor->GethandNumber(5, handcardNumber) + standardScore * 8;
 	}
 	return 0;
 }
-int Hand::RoyalStraightFlush(ObjectBase *nowActor, int* handcard)
+int Hand::RoyalStraightFlush(ObjectBase *nowActor, int* handcardNumber, int*handcardSuit)
 {
 	int count = 0;
-	if (nowActor->GethandNumber(0, handcard) == 1 && nowActor->GethandNumber(1, handcard) == 10)
+	if (flush(nowActor, handcardSuit) != 0)
 	{
-		count++;
-		for (int i = 1; i < 4; i++)
+		if (nowActor->GethandNumber(0, handcardNumber) == 1 && nowActor->GethandNumber(1, handcardNumber) == 10)
 		{
-			if (nowActor->GethandNumber(i, handcard) + 1 == nowActor->GethandNumber(i+1, handcard))
+			count++;
+			for (int i = 1; i < 4; i++)
 			{
-				count++;
-				if (count == 4)
+				if (nowActor->GethandNumber(i, handcardNumber) + 1 == nowActor->GethandNumber(i+1, handcardNumber))
 				{
-					return nowActor->GethandNumber(i, handcard) + standardScore * 9;
+					count++;
+					if (count == 4)
+					{
+						return nowActor->GethandNumber(i, handcardNumber) + standardScore * 9;
+					}
 				}
 			}
 		}

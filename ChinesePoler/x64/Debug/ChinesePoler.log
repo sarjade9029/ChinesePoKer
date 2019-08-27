@@ -1,14 +1,8 @@
-﻿  Camera.cpp
-  Card.cpp
-  CardManager.cpp
-  Computer.cpp
-  Deck.cpp
-c:\users\student\desktop\新しいフォルダー\chinesepoler\deck.cpp(21): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
-c:\users\student\desktop\新しいフォルダー\chinesepoler\deck.cpp(21): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
-  GameScene.cpp
+﻿  Computer.cpp
+  Dealer.cpp
+c:\users\student\desktop\新しいフォルダー\chinesepoler\dealer.cpp(54): error C2059: 構文エラー: ')'
   Hand.cpp
-  ObjectBase.cpp
   Player.cpp
   Sort.cpp
+  ObjectBase.cpp
   コードを生成中...
-  ChinesePoler.vcxproj -> C:\Users\student\Desktop\新しいフォルダー\ChinesePoler\x64\Debug\ChinesePoker.exe

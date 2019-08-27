@@ -3,8 +3,10 @@
 class Player:public ObjectBase
 {
 public:
-	Player();
+	Player();//À¿init
 	~Player();
-
+	void Update();
+	//draw‚ÍƒJ[ƒh‚Ì‚İ‚È‚Ì‚Å‚¢‚ç‚È‚¢
+private:
 };
 
