@@ -17,6 +17,7 @@ void Sort::handsort(ObjectBase * nowActor, int* handcard)
 	{
 		for (int i = 1; i < j; i++)
 		{
+			printf("ソート前1枚目number%dsuit%d\n2枚目number%dsuit%d\n", nowActor->GethandNumber(i - 1, handcard), nowActor->GethandSuit(i - 1, handcard), nowActor->GethandNumber(i, handcard), nowActor->GethandSuit(i, handcard));
 			if (nowActor->GethandNumber(i - 1, handcard) > nowActor->GethandNumber(i, handcard))
 			{
 				tmpnumber = nowActor->GethandNumber(i, handcard);
@@ -28,6 +29,7 @@ void Sort::handsort(ObjectBase * nowActor, int* handcard)
 				nowActor->SethandNumber(i - 1, tmpnumber, handcard);
 				nowActor->SethandSuit(i - 1, tmpsuit, handcard);
 			}
+
 		}
 	}
 	//スートのソート

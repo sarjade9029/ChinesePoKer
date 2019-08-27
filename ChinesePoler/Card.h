@@ -14,6 +14,8 @@ public:
 	void Update();//位置
 	const VECTOR& GetPos()const { return pos; }
 	void SetPos(const VECTOR set) { pos = set; }
+	int getNumber() { return number; }
+	int getSuit() { return suit; }
 private:
 	int number;			//ナンバー最大は13強さはA
 	int suit;	//スート、マークのことスペードが一番強い

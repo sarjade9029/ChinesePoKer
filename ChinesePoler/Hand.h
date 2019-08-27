@@ -18,5 +18,5 @@ public:
 	int FourCard                 (ObjectBase *nowActor,int* handcard);			//6~64		|	3~25	700
 	int StraitFlush              (ObjectBase *nowActor,int* handcard);		//15~50		|			800
 	int RoyalStraightFlush       (ObjectBase *nowActor,int* handcard);	//1			|			900
-	int standardScore;//100
+	int standardScore = 100;//100
 };

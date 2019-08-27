@@ -9,9 +9,9 @@ Hand::Hand()
 Hand::~Hand()
 {
 }
-int Hand::HighCard(ObjectBase *nowActor, int* handcard)//(statusbase*nowactor,int* handcard)
+int Hand::HighCard(ObjectBase *nowActor, int* handcard)
 {
-	nowActor->GethandNumber(5,handcard);//playerŒÅ’è‚¶‚á‚È‚­‚Änow_actor‚É‚µ‚Ä©—R‚Éw’è‚Å‚«‚é‚æ‚¤‚É‚·‚é
+	nowActor->GethandNumber(5,handcard);
 	if (nowActor->GethandNumber(1, handcard) == 1)
 	{
 		return nowActor->GethandNumber(1, handcard) + standardScore * 0;
@@ -157,7 +157,7 @@ int Hand::StraitFlush(ObjectBase *nowActor, int* handcard)
 }
 int Hand::RoyalStraightFlush(ObjectBase *nowActor, int* handcard)
 {
-	int count;
+	int count = 0;
 	if (nowActor->GethandNumber(0, handcard) == 1 && nowActor->GethandNumber(1, handcard) == 10)
 	{
 		count++;
