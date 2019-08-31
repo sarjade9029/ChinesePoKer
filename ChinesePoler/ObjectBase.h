@@ -9,12 +9,8 @@ public:
 	int GethandNumber(int n,int*handcardNumber);
 	int GethandSuit(int handcardSuit);
 	int GethandSuit(int n,int* handcardSuit);
-	int* Gethinumber() { return hiHandNumber; }
-	int* Getmiddlenumber() { return middleHandNumber; }
-	int* Getlownumber() { return lowHandNumber; }
-	int* Gethisuit() { return hiHandSuit; }
-	int* Getmiddlesuit() { return middleHandSuit; }
-	int* Getlowsuit() { return lowHandSuit; }
+	int* Getstartnumber() { return startHandNumber; }
+	int* Getstartsuit() { return startHandSuit; }
 	void SethandNumber(int i,int n,int* handcardNumber);
 	void SethandSuit(int i,int n,int* handcardSuit);
 	void setSelectMyHnad(int *handcardNumber,int* handcardSuit);

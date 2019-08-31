@@ -51,6 +51,7 @@ void CardManager::CreatCard()
 		{
 			printf("error creatDeck\n");
 		}
+		//デッキの生成 これが生成された時点で、カードも生成される
 		deck[i] = new Deck(this);
 	}
 }

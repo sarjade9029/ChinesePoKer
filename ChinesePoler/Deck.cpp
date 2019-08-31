@@ -17,7 +17,7 @@ Deck::Deck(CardManager* cardmanager)
 	}
 	for (int i = 0; i < 52; i++)
 	{
-		//カードの状態の初期化
+		//カードの生成
 		card[i] = new Card(this, i % 13 + 1, i / 13 + 1, cardmanager->GetModel(i / 13 + 1, i % 13 + 1),VGet(i*2,i*0.1,0));
 	}
 }

@@ -8,7 +8,7 @@ Dealer::Dealer()
 Dealer::~Dealer()
 {
 }
-void Dealer::setStarthand(ObjectBase* nowActor, int dealcard, int * handcardNumber, int*handcardSuit,Card*card)
+void Dealer::setStarthand(ObjectBase* nowActor, int dealcard, int * handcardNumber, int* handcardSuit,Card* card)
 {
 	//Šî–{•¡”–‡”z‚é‚Ì‚ÍÅ‰‚Ìˆê‰ñ‚Ì‚İ
 	for (int i = 0; i < 4; i++)
@@ -22,7 +22,7 @@ void Dealer::setStarthand(ObjectBase* nowActor, int dealcard, int * handcardNumb
 	}
 }
 
-void Dealer::setNextCard(ObjectBase* nowActor, int dealcard, int handcardNumber, int handcardSuit, Card*card)
+void Dealer::setNextCard(ObjectBase* nowActor, int dealcard, int handcardNumber, int handcardSuit, Card* card)
 {
 	handcardNumber = card[dealcard].getNumber();
 	handcardSuit = card[dealcard].getSuit();
@@ -51,7 +51,7 @@ void Dealer::Update()
 	}
 	for (int i = 0; i < 20; i++)
 	{
-		setStarthand(ActionActor, i, ActionActor->Gethinumber(), ActionActor->Gethisuit(),);
+		setStarthand(ActionActor, i, ActionActor->Getstartnumber(), ActionActor->Getstartsuit(),);
 
 	}
 }

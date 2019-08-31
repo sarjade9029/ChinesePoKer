@@ -3,8 +3,9 @@
 #include "Camera.h"
 
 Camera*camera = new Camera();
+//ƒJ[ƒh¶¬
 CardManager* cardManager = new CardManager();
-class Card *card;
+class Card *card[52];
 GameScene::GameScene()
 {
 }

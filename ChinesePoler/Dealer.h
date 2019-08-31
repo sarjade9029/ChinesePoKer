@@ -15,8 +15,8 @@ class Dealer
 public:
 	Dealer();
 	~Dealer();
-	void setStarthand(ObjectBase* nowActor, int dealcard, int * handcardNumber, int*handcardSuit, Card*card);
-	void setNextCard(ObjectBase* nowActor, int dealcard, int handcardNumber, int handcardSuit, Card*card);
+	void setStarthand(ObjectBase* nowActor, int dealcard, int * handcardNumber, int* handcardSuit, Card* card);
+	void setNextCard(ObjectBase* nowActor, int dealcard, int handcardNumber, int handcardSuit, Card* card);
 	void Update();
 private:
 	int card[52];
