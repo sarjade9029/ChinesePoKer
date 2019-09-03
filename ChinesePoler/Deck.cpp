@@ -39,9 +39,13 @@ void Deck::useDeck(int number, int suit)
 {
 	m_oneDeck[suit][number] = 2;
 }
-void Deck::usedDeck(int number, int suit)
+void Deck::putDeck(int number, int suit)
 {
 	m_oneDeck[suit][number] = 3;
+}
+void Deck::usedDeck(int number, int suit)
+{
+	m_oneDeck[suit][number] = 4;
 }
 void Deck::Draw()
 {
@@ -69,7 +73,7 @@ int Deck::CheckDeck(int number, int suit)
 		return 0;
 	}
 	//カードが存在している状態によって返す値が変わる
-	if (m_oneDeck[suit][number] == 1 || m_oneDeck[suit][number] == 2 || m_oneDeck[suit][number] == 3)
+	if (m_oneDeck[suit][number] == 1 || m_oneDeck[suit][number] == 2 || m_oneDeck[suit][number] == 3 || m_oneDeck[suit][number] == 4)
 	{
 		printf("Deck Check Exist:Deck in this Card Created\n");
 		return m_oneDeck[suit][number];

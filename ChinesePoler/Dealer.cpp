@@ -5,6 +5,7 @@ Dealer::Dealer()
 	m_Action = 0;
 	m_NextCard = 0;
 	m_startDeal = true;
+	m_stopDeal = false;
 }
 Dealer::~Dealer()
 {
@@ -41,25 +42,34 @@ void Dealer::setNextCard(ObjectBase* nowActor, int dealcard, int handcardNumber,
 }
 void Dealer::Update()
 {
+	if (m_stopDeal == false)
+	{
+		if (m_startDeal == true)
+		{
+			for (int i = 0; i < 20; i++)
+			{
+				//Ç±Ç±ÇÕÇ∑Ç◊ÇƒîzÇ¡ÇƒÇ©ÇÁé~Ç‹ÇÈ
+				m_Action = m_button;
+				m_Action = (i % 4) + m_button;
+				actionShift();
+				setStarthand(ActionActor, i, ActionActor->Getstartnumber(), ActionActor->Getstartsuit(), card, deck);
+				m_startDeal = false;
+			}
+			//stopdeal
+			m_stopDeal = true;
+		}
+		else
+		{
+			//Ç±Ç±ÇÕàÍñáÇ≤Ç∆Ç…é~Ç‹ÇÈ
+			actionShift();
+			setNextCard(ActionActor, m_NextCard, ActionActor->Getnextnumber(), ActionActor->Getnextsuit(), card, deck);
+			//stopdeal
+			m_stopDeal = true;
+		}
+	}
 	if (m_startDeal == true)
 	{
-		for (int i = 0; i < 20; i++)
-		{
-			//Ç±Ç±ÇÕÇ∑Ç◊ÇƒîzÇ¡ÇƒÇ©ÇÁé~Ç‹ÇÈ
-			m_Action = m_button;
-			m_Action = (i % 4) + m_button;
-			actionShift();
-			setStarthand(ActionActor, i, ActionActor->Getstartnumber(), ActionActor->Getstartsuit(), card, deck);
-			m_startDeal = false;
-		}
-		//stopdeal
-	}
-	else
-	{
-		//Ç±Ç±ÇÕàÍñáÇ≤Ç∆Ç…é~Ç‹ÇÈ
-		actionShift();
-		setNextCard(ActionActor, m_NextCard, ActionActor->Getnextnumber(), ActionActor->Getnextsuit(), card, deck);
-		//stopdeal
+		m_stopDeal = selectedcard(deck);
 	}
 }
 void Dealer::actionShift()
@@ -84,4 +94,21 @@ void Dealer::actionShift()
 		ActionActor = enemy[2];
 		//ÉGÉlÉ~Å[ÇR
 	}
+}
+
+bool Dealer::selectedcard(Deck* deck)
+{
+	int count = 0;
+	for (int i = 0; i < 20; i++)
+	{
+		if (deck->CheckDeck(i, i) == 3)
+		{
+			count++;
+		}
+	}
+	if (count == 20)
+	{
+		return false;
+	}
+	return true;
 }
