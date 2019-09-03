@@ -82,7 +82,6 @@ int Deck::CheckDeck(int number, int suit)
 	printf("Deck Check Error:NotExists suit:%d,number:%d,deck:%d\n",suit,number,m_oneDeck[suit][number]);
 	return -1;
 }
-
 void Deck::Update()
 {
 	for (int i = 1; i < 52; i++)
@@ -90,4 +89,3 @@ void Deck::Update()
 			card[i]->Update();
 	}
 }
-

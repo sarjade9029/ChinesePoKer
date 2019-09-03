@@ -24,13 +24,14 @@ public:
 	void Update();
 	void actionShift();
 	bool selectedcard(Deck* deck);
+	bool selectedcard(Deck* deck,int dealcard);
 private:
 	int m_button;
 	int m_Action;
 	int m_NextCard;
 	bool m_startDeal;
 	bool m_stopDeal;
+	bool m_stopDealnext;
 	ObjectBase* ActionActor;
 	ObjectBase* prevActionActor;
 };
-

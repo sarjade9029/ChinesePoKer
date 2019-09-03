@@ -30,7 +30,6 @@ CardManager::~CardManager()
 		}
 	}
 }
-
 void CardManager::CreatCard()
 {
 	//ƒ‚ƒfƒ‹“Ç‚İ‚İ
@@ -55,7 +54,6 @@ void CardManager::CreatCard()
 		deck[i] = new Deck(this);
 	}
 }
-
 void CardManager::Draw()
 {
 	for (int i = 1; i < (m_useDeck+1); i++)
@@ -63,7 +61,6 @@ void CardManager::Draw()
 		deck[i]->Draw();
 	}
 }
-
 void CardManager::Update()
 {
 	for (int i = 1; i < (m_useDeck + 1); i++)

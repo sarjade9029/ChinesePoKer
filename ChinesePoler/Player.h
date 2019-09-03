@@ -1,6 +1,6 @@
 #pragma once
 #include "ObjectBase.h"
-class Player:public ObjectBase
+class Player:protected ObjectBase
 {
 public:
 	Player();//ŽÀŽ¿init

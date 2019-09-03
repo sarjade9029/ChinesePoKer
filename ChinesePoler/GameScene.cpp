@@ -9,12 +9,9 @@ class Card *card[52];
 GameScene::GameScene()
 {
 }
-
-
 GameScene::~GameScene()
 {
 }
-
 SceneBase * GameScene::update()
 {
 
@@ -22,13 +19,11 @@ SceneBase * GameScene::update()
 	cardManager->Update();
 	return this;
 }
-
 void GameScene::init()
 {
 	//“®‚¢‚Ä‚Í‚¢‚é
 	cardManager->CreatCard();
 }
-
 void GameScene::draw()
 {
 

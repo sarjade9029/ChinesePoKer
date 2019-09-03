@@ -42,7 +42,7 @@ void Dealer::setNextCard(ObjectBase* nowActor, int dealcard, int handcardNumber,
 }
 void Dealer::Update()
 {
-	if (m_stopDeal == false)
+	if (m_stopDeal == false && m_stopDealnext == false)
 	{
 		if (m_startDeal == true)
 		{
@@ -64,12 +64,16 @@ void Dealer::Update()
 			actionShift();
 			setNextCard(ActionActor, m_NextCard, ActionActor->Getnextnumber(), ActionActor->Getnextsuit(), card, deck);
 			//stopdeal
-			m_stopDeal = true;
+			m_stopDealnext = true;
 		}
 	}
 	if (m_startDeal == true)
 	{
 		m_stopDeal = selectedcard(deck);
+	}
+	if (m_stopDealnext == true)
+	{
+		m_stopDealnext = selectedcard(deck, m_NextCard);
 	}
 }
 void Dealer::actionShift()
@@ -95,7 +99,6 @@ void Dealer::actionShift()
 		//エネミー３
 	}
 }
-
 bool Dealer::selectedcard(Deck* deck)
 {
 	int count = 0;
@@ -107,6 +110,19 @@ bool Dealer::selectedcard(Deck* deck)
 		}
 	}
 	if (count == 20)
+	{
+		return false;
+	}
+	return true;
+}
+bool Dealer::selectedcard(Deck * deck, int dealcard)
+{
+	bool check = false;
+	if (deck->CheckDeck(dealcard - 1, dealcard - 1) == 3)
+	{
+		check = true;
+	}
+	if (check == true)
 	{
 		return false;
 	}
