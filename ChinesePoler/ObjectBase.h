@@ -6,28 +6,30 @@ public:
 	ObjectBase();
 	~ObjectBase();
 	int GethandNumber(int handcardNumber);
-	int GethandNumber(int n,int*handcardNumber);
+	int GethandNumber(int n, int*handcardNumber);
 	int GethandSuit(int handcardSuit);
-	int GethandSuit(int n,int* handcardSuit);
-	int* Getstartnumber() { return startHandNumber; }
-	int* Getstartsuit() { return startHandSuit; }
+	int GethandSuit(int n, int* handcardSuit);
+	int* Getstartnumber() { return m_startHandNumber; }
+	int* Getstartsuit() { return m_startHandSuit; }
+	int Getnextnumber() { return m_nextHandNumber; }
+	int Getnextsuit() { return m_nextHandSuit; }
 	void SethandNumber(int i,int n,int* handcardNumber);
 	void SethandSuit(int i,int n,int* handcardSuit);
 	void setSelectMyHnad(int *handcardNumber,int* handcardSuit);
 	void setSelectMyHand(int *handcardNumber,int* handcardSuit, int n);
 private:
-	int hiHandNumber[5];		//
-	int middleHandNumber[5];	//
-	int lowHandNumber[3];		//
-	int hiHandSuit[5];			//
-	int middleHandSuit[5];		//
-	int lowHandSuit[3];			//
-	int startHandNumber[5];		//
-	int startHandSuit[5];		//
-	int nextHandNumber;			//
-	int nextHandSuit;			//
-	int point;					//ˆê‡–ˆ‚ÌÀ¿“I‚ÈHP
-	int Score;					//ˆêŸ•‰–ˆ‚ÌŸ”s‚ğŒˆ‚ß‚é“¾“_
-	int wins;					//
+	int m_hiHandNumber[5];		//
+	int m_middleHandNumber[5];	//
+	int m_lowHandNumber[3];		//
+	int m_hiHandSuit[5];			//
+	int m_middleHandSuit[5];		//
+	int m_lowHandSuit[3];			//
+	int m_startHandNumber[5];		//
+	int m_startHandSuit[5];		//
+	int m_nextHandNumber;			//
+	int m_nextHandSuit;			//
+	int m_point;					//ˆê‡–ˆ‚ÌÀ¿“I‚ÈHP
+	int m_Score;					//ˆêŸ•‰–ˆ‚ÌŸ”s‚ğŒˆ‚ß‚é“¾“_
+	int m_wins;					//
 };
 

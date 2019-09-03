@@ -12,13 +12,13 @@ public:
 	void showCard();	//カードを見る
 	void Draw();//描画
 	void Update();//位置
-	const VECTOR& GetPos()const { return pos; }
-	void SetPos(const VECTOR set) { pos = set; }
-	int getNumber() { return number; }
-	int getSuit() { return suit; }
+	const VECTOR& GetPos()const { return m_pos; }
+	void SetPos(const VECTOR set) { m_pos = set; }
+	int getNumber() { return m_number; }
+	int getSuit() { return m_suit; }
 private:
-	int number;			//ナンバー最大は13強さはA
-	int suit;	//スート、マークのことスペードが一番強い
-	VECTOR pos;
-	int modelHundle;	//モデルの格納
+	int m_number;			//ナンバー最大は13強さはA
+	int m_suit;	//スート、マークのことスペードが一番強い
+	VECTOR m_pos;
+	int m_modelHundle;	//モデルの格納
 };

@@ -7,8 +7,7 @@ Camera::Camera()
 	//‹——£
 	SetCameraNearFar(0.1f, 1000.0f);
 	
-	//pos = VGet(0.0f, 0.0f, 0.0f);
-	pos = VGet(0.0f, 40.0f, -40.0f);
+	m_pos = VGet(0.0f, 40.0f, -40.0f);
 }
 
 Camera::~Camera()
@@ -43,5 +42,5 @@ void Camera::Update()
 	//{
 	//	pos.x -= 1;
 	//}
-	SetCameraPositionAndTarget_UpVecY(pos, VGet(0.0f, 0.0f, 0.0f));
+	SetCameraPositionAndTarget_UpVecY(m_pos, VGet(0.0f, 0.0f, 0.0f));
 }

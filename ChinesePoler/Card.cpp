@@ -2,36 +2,35 @@
 
 Card::Card(Deck* deck, int num, int suitnum, int SorceModelHundle,VECTOR Pos)
 {
-	number = num;
-	suit = suitnum;
-	if (deck->CheckDeck(number,suit))
+	m_number = num;
+	m_suit = suitnum;
+	if (deck->CheckDeck(m_number,m_suit))
 	{
 		//デッキに同じカードが存在していないなら自分を登録
-		deck->CreatDeck(number, suit);
+		deck->CreatDeck(m_number, m_suit);
 	}
-	modelHundle = MV1DuplicateModel(SorceModelHundle);
-	if (modelHundle < 0)
+	m_modelHundle = MV1DuplicateModel(SorceModelHundle);
+	if (m_modelHundle < 0)
 	{
-		printf("データ読み込みに失敗. sourceId:%d\n", modelHundle);
+		printf("データ読み込みに失敗. sourceId:%d\n", m_modelHundle);
 	}
-	pos = Pos;
-	printf("x:%f,y:%f,z:%f\n", pos.x, pos.y, pos.z);
+	m_pos = Pos;
+	printf("x:%f,y:%f,z:%f\n", m_pos.x, m_pos.y, m_pos.z);
 }
 Card::~Card()
 {
-	MV1DeleteModel(modelHundle);
+	MV1DeleteModel(m_modelHundle);
 }
 void Card::showCard()
 {
-	printf("number:%d,suit:%d\n",number, suit);
+	printf("number:%d,suit:%d\n",m_number, m_suit);
 }
 void Card::Draw()
 {
-		MV1DrawModel(modelHundle);
+	MV1DrawModel(m_modelHundle);
 }
 void Card::Update()
 {	
-	MV1SetPosition(modelHundle, pos);
-
+	MV1SetPosition(m_modelHundle, m_pos);
 }
 

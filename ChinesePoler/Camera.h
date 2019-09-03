@@ -8,9 +8,9 @@ public:
 	~Camera();
 	void Update();//’èˆÊ’u
 
-	const VECTOR& GetPos()const { return pos; }
+	const VECTOR& GetPos()const { return m_pos; }
 
 private:
-	VECTOR pos;
+	VECTOR m_pos;
 };
 

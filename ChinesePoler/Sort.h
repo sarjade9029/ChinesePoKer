@@ -1,6 +1,6 @@
 #pragma once
 #include "Player.h"
-#include "Computer.h"
+#include "Enemy.h"
 #include "DxLib.h"
 #include "ObjectBase.h"
 

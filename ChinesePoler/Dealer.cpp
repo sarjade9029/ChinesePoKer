@@ -1,57 +1,87 @@
 #include "Dealer.h"
-
 Dealer::Dealer()
 {
-	button = 0;
-	Action = 0;
+	m_button = 0;
+	m_Action = 0;
+	m_NextCard = 0;
+	m_startDeal = true;
 }
 Dealer::~Dealer()
 {
 }
-void Dealer::setStarthand(ObjectBase* nowActor, int dealcard, int * handcardNumber, int* handcardSuit,Card* card)
+void Dealer::setStarthand(ObjectBase* nowActor, int dealcard, int * handcardNumber, int* handcardSuit,Card* card,Deck* deck)
 {
-	//基本複数枚配るのは最初の一回のみ
-	for (int i = 0; i < 4; i++)
+	if (handcardNumber[(dealcard % 4)] == 0)
 	{
-		if (handcardNumber[i] == 0)
+		if (deck->CheckDeck(dealcard, dealcard) == 1)
 		{
-			handcardNumber[i] = card[dealcard].getNumber();
-			handcardSuit[i] = card[dealcard].getSuit();
-			printf("%d%d", nowActor->GethandNumber(i, handcardNumber), nowActor->GethandSuit(i, handcardSuit));
+			handcardNumber[(dealcard % 4)] = card[dealcard].getNumber();
+			handcardSuit[(dealcard % 4)] = card[dealcard].getSuit();
+			deck->useDeck(dealcard, dealcard);
+			card->SetPos(VGet((dealcard % 4), dealcard, (dealcard / 4)));
+			printf("%d%d", nowActor->GethandNumber((dealcard % 4), handcardNumber), nowActor->GethandSuit((dealcard % 4), handcardSuit));
+			m_NextCard++;
 		}
 	}
 }
-
-void Dealer::setNextCard(ObjectBase* nowActor, int dealcard, int handcardNumber, int handcardSuit, Card* card)
+void Dealer::setNextCard(ObjectBase* nowActor, int dealcard, int handcardNumber, int handcardSuit, Card* card,Deck* deck)
 {
-	handcardNumber = card[dealcard].getNumber();
-	handcardSuit = card[dealcard].getSuit();
-	printf("%d%d", nowActor->GethandNumber(handcardNumber), nowActor->GethandSuit(handcardSuit));
+	if (handcardNumber == 0)
+	{
+		if (deck->CheckDeck(dealcard, dealcard) == 1)
+		{
+			handcardNumber = card[dealcard].getNumber();
+			handcardSuit = card[dealcard].getSuit();
+			deck->useDeck(dealcard, dealcard);
+			card->SetPos(VGet(5.0f, 5.0f, 5.0f));
+			printf("%d%d", nowActor->GethandNumber(handcardNumber), nowActor->GethandSuit(handcardSuit));
+			m_NextCard++;
+		}
+	}
 }
-
 void Dealer::Update()
 {
-	Action = button;
-	if (Action == 0)
+	if (m_startDeal == true)
 	{
-		//ActionActor = 
+		for (int i = 0; i < 20; i++)
+		{
+			//ここはすべて配ってから止まる
+			m_Action = m_button;
+			m_Action = (i % 4) + m_button;
+			actionShift();
+			setStarthand(ActionActor, i, ActionActor->Getstartnumber(), ActionActor->Getstartsuit(), card, deck);
+			m_startDeal = false;
+		}
+		//stopdeal
+	}
+	else
+	{
+		//ここは一枚ごとに止まる
+		actionShift();
+		setNextCard(ActionActor, m_NextCard, ActionActor->Getnextnumber(), ActionActor->Getnextsuit(), card, deck);
+		//stopdeal
+	}
+}
+void Dealer::actionShift()
+{
+	if (m_Action == 0)
+	{
+		ActionActor = player;
 		//一応player
 	}
-	if (Action == 1)
+	if (m_Action == 1)
 	{
+		ActionActor = enemy[0];
 		//エネミー１
 	}
-	if (Action == 2)
+	if (m_Action == 2)
 	{
+		ActionActor = enemy[1];
 		//エネミー２
 	}
-	if (Action == 3)
+	if (m_Action == 3)
 	{
+		ActionActor = enemy[2];
 		//エネミー３
-	}
-	for (int i = 0; i < 20; i++)
-	{
-		setStarthand(ActionActor, i, ActionActor->Getstartnumber(), ActionActor->Getstartsuit(),);
-
 	}
 }

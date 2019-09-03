@@ -1,8 +1,2 @@
-﻿  Computer.cpp
-  Dealer.cpp
-c:\users\student\desktop\新しいフォルダー\chinesepoler\dealer.cpp(54): error C2059: 構文エラー: ')'
-  Hand.cpp
-  Player.cpp
-  Sort.cpp
-  ObjectBase.cpp
-  コードを生成中...
+﻿  Dealer.cpp
+  ChinesePoler.vcxproj -> C:\Users\student\Desktop\新しいフォルダー\ChinesePoler\x64\Debug\ChinesePoker.exe

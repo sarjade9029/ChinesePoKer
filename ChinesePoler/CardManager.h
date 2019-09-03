@@ -13,11 +13,11 @@ public:
 	void CreatCard();
 	void Draw();
 	void Update();
-	int GetModel(int suit, int number) { return cardModel[suit][number]; }
-	int GetDeckNumber() { return useDeck; }
+	int GetModel(int suit, int number) { return m_cardModel[suit][number]; }
+	int GetDeckNumber() { return m_useDeck; }
 private:
-	int cardModel[5][14];
-	int useDeck = 1;//0‚ÍÅ‰
+	int m_cardModel[5][14];
+	int m_useDeck = 1;//0‚ÍÅ‰
 	Deck* deck[MAX_DECK];
 };
 

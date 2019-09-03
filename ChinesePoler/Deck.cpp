@@ -12,7 +12,7 @@ Deck::Deck(CardManager* cardmanager)
 				printf("error deckinit\n");
 				break;
 			}
-			oneDeck[i][j] = 0;
+			m_oneDeck[i][j] = 0;
 		}
 	}
 	for (int i = 0; i < 52; i++)
@@ -33,7 +33,15 @@ Deck::~Deck()
 //存在しているかどうかをチェックしてから生成させる
 void Deck::CreatDeck(int number, int suit)
 {
-	oneDeck[suit][number] = 1;
+	m_oneDeck[suit][number] = 1;
+}
+void Deck::useDeck(int number, int suit)
+{
+	m_oneDeck[suit][number] = 2;
+}
+void Deck::usedDeck(int number, int suit)
+{
+	m_oneDeck[suit][number] = 3;
 }
 void Deck::Draw()
 {
@@ -55,19 +63,19 @@ int Deck::CheckDeck(int number, int suit)
 		return -1;
 	}
 	//カードが存在していない状態である0の時はカードが生成できるので0を返す
-	if (oneDeck[suit][number] == 0)
+	if (m_oneDeck[suit][number] == 0)
 	{
 		printf("Deck Check Clear: %d,%d Creat Card\n",suit,number);
 		return 0;
 	}
 	//カードが存在している状態によって返す値が変わる
-	if (oneDeck[suit][number] == 1 || oneDeck[suit][number] == 2 || oneDeck[suit][number] == 3)
+	if (m_oneDeck[suit][number] == 1 || m_oneDeck[suit][number] == 2 || m_oneDeck[suit][number] == 3)
 	{
 		printf("Deck Check Exist:Deck in this Card Created\n");
-		return oneDeck[suit][number];
+		return m_oneDeck[suit][number];
 	}
 	//ここまで来たら何がおかしいのかわからないのでとりあえず-1を返す
-	printf("Deck Check Error:NotExists suit:%d,number:%d,deck:%d\n",suit,number,oneDeck[suit][number]);
+	printf("Deck Check Error:NotExists suit:%d,number:%d,deck:%d\n",suit,number,m_oneDeck[suit][number]);
 	return -1;
 }
 
