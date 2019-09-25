@@ -5,11 +5,6 @@
 #include "Enemy.h"
 #include "Card.h"
 #include "Deck.h"
-//ボタンの位置の次から
-//一枚づつ順に配る
-//最低二人最高四人人数＊五枚刻みで配る
-//キャラへのアクセスが必須
-//updateで配る
 class Card* card;
 class Deck* deck;
 class Player* player;

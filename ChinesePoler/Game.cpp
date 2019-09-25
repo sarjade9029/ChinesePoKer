@@ -1,8 +1,5 @@
 #include <iostream>
 #include "Game.h"
-
-
-
 Game::Game()
 	:m_FullScreen(false)
 	,m_IsGameQuit(false)
@@ -11,11 +8,6 @@ Game::Game()
 	,m_nowScene(nullptr)
 {
 }
-
-void Game::input()
-{
-}
-
 void Game::draw()
 {
 	if (!m_nowScene)
@@ -24,7 +16,6 @@ void Game::draw()
 	}
 	m_nowScene->draw();
 }
-
 int Game::update()
 {
 	if (!m_nowScene)
@@ -45,25 +36,18 @@ int Game::update()
 	}
 	return 0;
 }
-
 void Game::init()
 {
 	if (!m_FullScreen)
 	{
 		ChangeWindowMode(TRUE);
 	}
-	//setcamera
 	DxLib_Init();
-
 	SetMouseDispFlag(true);
-	//SetDrawScreen(DX_SCREEN_BACK);
 }
-
-
 Game::~Game()
 {
 }
-
 void Game::Run()
 {
 	init();
@@ -91,7 +75,6 @@ void Game::Run()
 	}
 	DxLib_End();
 }
-
 void Game::setScreen(int width, int height, bool Fullscreen)
 {
 	m_screenWidth = width;

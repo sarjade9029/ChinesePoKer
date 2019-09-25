@@ -3,7 +3,6 @@
 #include "Enemy.h"
 #include "DxLib.h"
 #include "ObjectBase.h"
-
 class Sort
 {
 public:
@@ -11,6 +10,4 @@ public:
 	~Sort();
 	void handsort(ObjectBase * nowActor, int* handcardNumber, int* handcardSuit);
 private:
-
-
 };

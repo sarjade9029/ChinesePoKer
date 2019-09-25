@@ -2,7 +2,6 @@
 #include "SceneBase.h"
 class CardManager;
 class Camera;
-
 class GameScene :public SceneBase
 {
 public:

@@ -6,4 +6,3 @@ public:
 	Enemy();
 	~Enemy();
 };
-

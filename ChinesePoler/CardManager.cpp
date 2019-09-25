@@ -1,5 +1,4 @@
 #include "CardManager.h"
-
 CardManager::CardManager()
 {
 	for (int i = 0; i < 5; i++) 

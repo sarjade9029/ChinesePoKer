@@ -5,4 +5,3 @@ public:
 	GameSys();
 	~GameSys();
 };
-

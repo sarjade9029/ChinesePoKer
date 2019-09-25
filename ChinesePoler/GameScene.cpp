@@ -1,7 +1,6 @@
 #include "GameScene.h"
 #include "CardManager.h"
 #include "Camera.h"
-
 Camera*camera = new Camera();
 //ƒJ[ƒh¶¬
 CardManager* cardManager = new CardManager();
@@ -14,7 +13,6 @@ GameScene::~GameScene()
 }
 SceneBase * GameScene::update()
 {
-
 	camera->Update();
 	cardManager->Update();
 	return this;
@@ -26,7 +24,6 @@ void GameScene::init()
 }
 void GameScene::draw()
 {
-
 	ClearDrawScreen();
 	cardManager->Draw();
 }

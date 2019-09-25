@@ -8,6 +8,4 @@ public:
 	~TitleScene();
 	SceneBase* update();
 	void draw();
-
 };
-

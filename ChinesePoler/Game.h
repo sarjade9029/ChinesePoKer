@@ -1,12 +1,10 @@
 #pragma once
 #include "DxLib.h"
 #include "SceneBase.h"
-
 #define GAMEINSTANCE Game::GameInstance()
 class Game
 {
 	SceneBase* m_nowScene;
-
 public:
 	static Game& GameInstance()
 	{
@@ -18,12 +16,9 @@ public:
 	void setScreen(int width, int height, bool Fullscreen);
 	int  getScreenWidth() { return m_screenWidth; }
 	int  getScreenHeight() { return m_screenHeight; }
-
 	void setFirstScene(SceneBase* pScene) { m_nowScene = pScene; }
-
 private:
 	Game();
-	void input();
 	void draw();
 	int update();
 	void init();

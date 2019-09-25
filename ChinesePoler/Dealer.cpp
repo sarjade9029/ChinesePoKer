@@ -55,7 +55,6 @@ void Dealer::Update()
 				setStarthand(ActionActor, i, ActionActor->Getstartnumber(), ActionActor->Getstartsuit(), card, deck);
 				m_startDeal = false;
 			}
-			//stopdeal
 			m_stopDeal = true;
 		}
 		else

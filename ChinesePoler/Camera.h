@@ -7,9 +7,7 @@ public:
 	Camera();
 	~Camera();
 	void Update();//’èˆÊ’u
-
 	const VECTOR& GetPos()const { return m_pos; }
-
 private:
 	VECTOR m_pos;
 };

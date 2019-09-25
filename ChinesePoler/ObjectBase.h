@@ -32,4 +32,3 @@ protected:
 	int m_Score;					//ˆêŸ•‰–ˆ‚ÌŸ”s‚ğŒˆ‚ß‚é“¾“_
 	int m_wins;						//
 };
-

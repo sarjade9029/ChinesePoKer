@@ -20,4 +20,3 @@ private:
 	int m_useDeck = 1;//0ÇÕç≈èâ
 	Deck* deck[MAX_DECK];
 };
-

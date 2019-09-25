@@ -2,10 +2,8 @@
 #include "DxLib.h"
 #include "Card.h"
 #include "CardManager.h"
-
 class CardManager;
 class Card;
-
 //デッキは複数存在する可能性があるのでここでcardのモデルを読み込んでいると何度も読み込んでしまうことになる
 class Deck
 {

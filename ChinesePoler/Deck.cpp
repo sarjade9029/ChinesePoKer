@@ -1,5 +1,4 @@
 #include "Deck.h"
-
 Deck::Deck(CardManager* cardmanager)
 {
 	//カードの状態を初期化
@@ -54,10 +53,6 @@ void Deck::Draw()
 			card[i]->Draw();
 	}
 }
-//カードが存在しているかしていないかを取得
-//存在していないなら0を返す
-//存在しているならカードの状態を数値化したものを返す
-//カードの状態がおかしかったり予期せぬエラーが出たときは-1を返す
 int Deck::CheckDeck(int number, int suit)
 {
 	//numberかsuitが0ならばそんなカードは存在しないので-1を返す

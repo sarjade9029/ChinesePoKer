@@ -1,7 +1,4 @@
 #include "Hand.h"
-
-
-
 Hand::Hand()
 {
 	standardScore = 100;

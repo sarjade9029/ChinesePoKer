@@ -9,4 +9,3 @@ public:
 	//draw‚ÍƒJ[ƒh‚Ì‚İ‚È‚Ì‚Å‚¢‚ç‚È‚¢
 private:
 };
-

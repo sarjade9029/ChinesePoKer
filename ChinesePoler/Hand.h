@@ -1,13 +1,11 @@
 #pragma once
 #include "Card.h"
 #include "ObjectBase.h"
-
 class Hand
 {
 public:
 	Hand();
 	~Hand();
-	
 	int HighCard                 (ObjectBase *nowActor,int* handcard);			//16~54		|			0
 	int OnePair                  (ObjectBase *nowActor,int* handcard);			//11~59		|	10~46	100
 	int TowPair                  (ObjectBase *nowActor,int* handcard);			//9~61		|	6~36	200

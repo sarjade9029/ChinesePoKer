@@ -7,7 +7,6 @@ Sort::~Sort()
 {
 	printf("ソートを終了しました");
 }
-//(statusbase*nowactor,int* handcard)
 void Sort::handsort(ObjectBase * nowActor, int* handcardNumber, int* handcardSuit)
 {
 	int tmpnumber;

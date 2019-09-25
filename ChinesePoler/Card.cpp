@@ -1,5 +1,4 @@
 #include "Card.h"
-
 Card::Card(Deck* deck, int num, int suitnum, int SorceModelHundle,VECTOR Pos)
 {
 	m_number = num;
@@ -33,4 +32,3 @@ void Card::Update()
 {	
 	MV1SetPosition(m_modelHundle, m_pos);
 }
-
